@@ -1,31 +1,31 @@
 /* eslint-disable prefer-const */
 import { PairHourData } from "../generated/schema";
 import { BigInt, BigDecimal, ethereum } from "@graphprotocol/graph-ts";
-import { Pair, Bundle, Token, PancakeFactory, PancakeDayData, PairDayData, TokenDayData } from "../generated/schema";
+import { Pair, Bundle, Token, EnvoysFactory, EnvoysDayData, PairDayData, TokenDayData } from "../generated/schema";
 import { ONE_BI, ZERO_BD, ZERO_BI, FACTORY_ADDRESS } from "./utils";
 
-export function updatePancakeDayData(event: ethereum.Event): PancakeDayData {
-  let pancake = PancakeFactory.load(FACTORY_ADDRESS);
+export function updateEnvoysDayData(event: ethereum.Event): EnvoysDayData {
+  let envoys = EnvoysFactory.load(FACTORY_ADDRESS);
   let timestamp = event.block.timestamp.toI32();
   let dayID = timestamp / 86400;
   let dayStartTimestamp = dayID * 86400;
 
-  let pancakeDayData = PancakeDayData.load(dayID.toString());
-  if (pancakeDayData === null) {
-    pancakeDayData = new PancakeDayData(dayID.toString());
-    pancakeDayData.date = dayStartTimestamp;
-    pancakeDayData.dailyVolumeUSD = ZERO_BD;
-    pancakeDayData.dailyVolumeBNB = ZERO_BD;
-    pancakeDayData.totalVolumeUSD = ZERO_BD;
-    pancakeDayData.totalVolumeBNB = ZERO_BD;
-    pancakeDayData.dailyVolumeUntracked = ZERO_BD;
+  let envoysDayData = EnvoysDayData.load(dayID.toString());
+  if (envoysDayData === null) {
+    envoysDayData = new EnvoysDayData(dayID.toString());
+    envoysDayData.date = dayStartTimestamp;
+    envoysDayData.dailyVolumeUSD = ZERO_BD;
+    envoysDayData.dailyVolumeBNB = ZERO_BD;
+    envoysDayData.totalVolumeUSD = ZERO_BD;
+    envoysDayData.totalVolumeBNB = ZERO_BD;
+    envoysDayData.dailyVolumeUntracked = ZERO_BD;
   }
-  pancakeDayData.totalLiquidityUSD = pancake.totalLiquidityUSD;
-  pancakeDayData.totalLiquidityBNB = pancake.totalLiquidityBNB;
-  pancakeDayData.totalTransactions = pancake.totalTransactions;
-  pancakeDayData.save();
+  envoysDayData.totalLiquidityUSD = envoys.totalLiquidityUSD;
+  envoysDayData.totalLiquidityBNB = envoys.totalLiquidityBNB;
+  envoysDayData.totalTransactions = envoys.totalTransactions;
+  envoysDayData.save();
 
-  return pancakeDayData as PancakeDayData;
+  return envoysDayData as EnvoysDayData;
 }
 
 export function updatePairDayData(event: ethereum.Event): PairDayData {

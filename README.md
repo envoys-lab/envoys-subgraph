@@ -1,6 +1,6 @@
-# PancakeSwap Subgraph
+# Envoys Subgraph
 
-TheGraph exposes a GraphQL endpoint to query the events and entities within the Binance Smart Chain and PancakeSwap ecosystem.
+TheGraph exposes a GraphQL endpoint to query the events and entities within the Binance Smart Chain and Envoys ecosystem.
 
 Currently, there are multiple subgraphs, but additional subgraphs can be added to this repository, following the current architecture.
 
@@ -57,4 +57,4 @@ For any of the subgraph: `blocks` as `[subgraph]`
 
 ## v1
 
-To access subgraphs related to PancakeSwap v1 ecosystem ([article](https://pancakeswap.medium.com/the-great-migration-vote-4093cb3edf23)), use [`v1`](https://github.com/pancakeswap/pancake-subgraph/tree/v1) branch.
+To access subgraphs related to Envoys v1 ecosystem ([article](https://pancakeswap.medium.com/the-great-migration-vote-4093cb3edf23)), use [`v1`](https://github.com/pancakeswap/pancake-subgraph/tree/v1) branch.
