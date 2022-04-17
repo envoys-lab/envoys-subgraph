@@ -62,7 +62,7 @@ type Token @entity {
 }
 
 """
-Envoys Pairs (Cake-LP)
+Envoys Pairs (ENVOYS-LP)
 """
 type Pair @entity {
   "ID (address)"
