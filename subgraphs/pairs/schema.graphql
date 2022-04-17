@@ -33,7 +33,7 @@ type _Schema_
   )
 
 """
-PancakeSwap Factory
+Envoys Factory
 """
 type Factory @entity {
   "ID (address)"
@@ -47,7 +47,7 @@ type Factory @entity {
 }
 
 """
-PancakeSwap Tokens
+Envoys Tokens
 """
 type Token @entity {
   "ID (address)"
@@ -62,7 +62,7 @@ type Token @entity {
 }
 
 """
-PancakeSwap Pairs (Cake-LP)
+Envoys Pairs (Cake-LP)
 """
 type Pair @entity {
   "ID (address)"
