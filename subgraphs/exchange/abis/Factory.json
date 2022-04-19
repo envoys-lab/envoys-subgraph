@@ -1,17 +1,5 @@
 [
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_feeToSetter",
-        "type": "address"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
     "anonymous": false,
     "inputs": [
       {
@@ -44,21 +32,6 @@
   },
   {
     "constant": true,
-    "inputs": [],
-    "name": "INIT_CODE_PAIR_HASH",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
     "inputs": [
       {
         "internalType": "uint256",
@@ -70,7 +43,7 @@
     "outputs": [
       {
         "internalType": "address",
-        "name": "",
+        "name": "pair",
         "type": "address"
       }
     ],
@@ -154,12 +127,12 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "",
+        "name": "tokenA",
         "type": "address"
       },
       {
         "internalType": "address",
-        "name": "",
+        "name": "tokenB",
         "type": "address"
       }
     ],
@@ -167,7 +140,7 @@
     "outputs": [
       {
         "internalType": "address",
-        "name": "",
+        "name": "pair",
         "type": "address"
       }
     ],
@@ -180,7 +153,7 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "_feeTo",
+        "name": "",
         "type": "address"
       }
     ],
@@ -195,7 +168,7 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "_feeToSetter",
+        "name": "",
         "type": "address"
       }
     ],
