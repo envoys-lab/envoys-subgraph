@@ -51,7 +51,7 @@ export function findBnbPerToken(token: Token): BigDecimal {
   }
   // loop through whitelist and check if paired with any
   for (let i = 0; i < WHITELIST.length; ++i) {
-    let pairAddress = factoryContract.getPair(Address.fromString(token.id), Address.fromString(WHITELIST[i]));
+    let pairAddress = fetchPair(Address.fromString(token.id), Address.fromString(WHITELIST[i]));
     if (pairAddress.toHex() != ADDRESS_ZERO) {
       let pair = Pair.load(pairAddress.toHex());
       if (pair.token0 == token.id && pair.reserveBNB.gt(MINIMUM_LIQUIDITY_THRESHOLD_BNB)) {
@@ -65,6 +65,15 @@ export function findBnbPerToken(token: Token): BigDecimal {
     }
   }
   return ZERO_BD; // nothing was found return 0
+}
+
+export function fetchPair(address1: Address, address2: Address): Address {
+  let addressResult = factoryContract.try_getPair(address1, address2);
+  if (!addressResult.reverted) {
+    return addressResult.value;
+  }
+
+  return Address.fromString(ADDRESS_ZERO);
 }
 
 /**
